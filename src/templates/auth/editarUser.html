@@ -1,0 +1,236 @@
+{% extends './base_Menu.html'%}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user.css')}}">
+
+{% endblock %}
+
+{% block body %}
+
+<div
+    class="container">
+
+    <div class="formulario">
+
+        <p style="text-align:center;">
+            <img src="{{ url_for('static', filename='img/user3.png') }}"
+                alt="Imagen de Usuario" width="50" height="62.5">
+        </p>
+        <h2>Editar Usuario</h2>
+
+        <form class="form-signin" action="/editarU/{{usuario.nip}}"
+            method="POST">
+            <!-- Primer Fila -->
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingInput"
+                            name="txtNIP"
+                            value="{{ usuario.nip }}"
+                            placeholder="Ejemplo: 12345-P"
+                            pattern="\d{5,6}-[A-Z]" required>
+
+                        <label for="floatingInput">NIP <span
+                                class="text-danger">*</span></label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingPrimerNombre"
+                            name="txtPrimerNombre"
+                            value="{{ usuario.primer_nombre }}"
+                            placeholder="Ejemplo: John" required>
+                        <label for="floatingPrimerNombre">Primer Nombre
+                            <span class="text-danger">*</span></label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingSegundoNombre"
+                            name="txtSegundoNombre"
+                            value="{{ usuario.segundo_nombre }}"
+                            placeholder="Ejemplo: John">
+                        <label for="floatingSegundoNombre">Segundo
+                            Nombre</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Segunda Fila -->
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingTercerNombre"
+                            name="txtTercerNombre"
+                            value="{{ usuario.tercer_nombre }}"
+                            placeholder="Ejemplo: Juan">
+                        <label for="floatingTercerNombre">Tercer Nombre</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingPrimerApellido"
+                            name="txtPrimerApellido"
+                            value="{{ usuario.primer_apellido }}"
+                            placeholder="Ejemplo: Pérez">
+                        <label for="floatingPrimerApellido">Primer
+                            Apellido <span class="text-danger">*</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingSegundoApellido"
+                            name="txtSegundoApellido"
+                            value="{{ usuario.segundo_apellido }}"
+                            placeholder="Ejemplo: López">
+                        <label for="floatingSegundoApellido">Segundo
+                            Apellido</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Tercer Fila -->
+            <div class="form-row ">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingTelefono"
+                            name="txtTelefono"
+                            value="{{ usuario.telefono }}"
+                            placeholder="Ejemplo: 45297090"
+                            pattern="\d{8}"
+                            title="Ingrese exactamente 8 dígitos numéricos"
+                            required>
+                        <label for="floatingTelefono">Teléfono <span
+                                class="text-danger">*</span></label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="email" class="form-control"
+                            id="floatingCorreo"
+                            name="txtCorreo"
+                            value="{{ usuario.correo }}"
+                            placeholder="Ejemplo: usuario@example.com"
+                            required>
+                        <label for="floatingCorreo">Correo
+                            Electrónico <span class="text-danger">*</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingRol"
+                            name="txtRol" required>
+                            <option value disabled>Seleccionar Rol</option>
+                            <option value="1">Administrador</option>
+                            <option value="2">Analista SGO</option>
+                            <option value="3">Digitador SGO</option>
+                            <option value="4">Digitador SGIC</option>
+                        </select>
+                        <label for="floatingRol">Rol <span class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Seleccione un rol.</div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Cuarta Fila -->
+            <div class="form-row ">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingEstatus"
+                            name="txtEstatus" required>
+                            <option value disabled selected>Seleccionar Estatus</option>
+                            <option value="1">Activo</option>
+                            <option value="2">Suspendido</option>
+                            <option value="3">Inactivo</option>
+                        </select>
+                        <label for="floatingEstatus">Estatus <span
+                                class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Seleccione un estatus.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="password" class="form-control"
+                            id="floatingPass" name="txtPassword"
+                            placeholder="Ejemplo: Lgdfg4">
+                        <label for="floatingPass">Contraseña</label>
+                        <div class="input-group-append">
+                            <button id="show_password" class="btn btn-primary"
+                                type="button" onclick="togglePassword()">
+                                <span id="eye_icon" class="fa fa-eye-slash"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <a href="/registroU" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+<!--Seleccionar Rol-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtén el valor de usuario.rol
+        var rolValue = "{{ usuario.rol }}";
+
+        // Encuentra el elemento select
+        var selectElement = document.getElementById('floatingRol');
+
+        // Recorre las opciones y selecciona la que coincide con el valor de usuario.rol
+        for (var i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].value === rolValue) {
+                selectElement.options[i].selected = true;
+                break;
+            }
+        }
+    });
+</script>
+
+<!--Sececcionar Estatus-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtén el valor de usuario.estatus
+        var estatusValue = "{{ usuario.estatus }}";
+
+        // Encuentra el elemento select
+        var selectEstatusElement = document.getElementById('floatingEstatus');
+
+        // Recorre las opciones y selecciona la que coincide con el valor de usuario.estatus
+        for (var i = 0; i < selectEstatusElement.options.length; i++) {
+            if (selectEstatusElement.options[i].value === estatusValue) {
+                selectEstatusElement.options[i].selected = true;
+                break;
+            }
+        }
+    });
+</script>
+
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Validación de campos js -->
+<script
+    src="{{ url_for('static', filename='javascript/validacion_User.js') }}"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-cm1FJCxeSri3l3z8nZea5T1MIg4Jy5c5fF5mi1rnl4g1by5Jp5FEh3Os2R5h5jJs6"
+    crossorigin="anonymous"></script>
+{% endblock %}

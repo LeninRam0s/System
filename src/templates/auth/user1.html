@@ -1,0 +1,33 @@
+{% extends './base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+
+        <body>
+            <!-- ======= Header ======= -->
+            <h3>Registro de Incidencia criminal</h3>
+            <img src="{{ url_for('static', filename='EVENTOS.png')}}"
+                alt="Imagen de Usuario">
+
+        </body>
+
+        
+
+    </div>
+
+</div>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-cm1FJCxeSri3l3z8nZea5T1MIg4Jy5c5fF5mi1rnl4g1by5Jp5FEh3Os2R5h5jJs6"
+    crossorigin="anonymous"></script>
+
+{% endblock %}

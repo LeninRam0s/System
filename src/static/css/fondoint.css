@@ -1,0 +1,171 @@
+/* Estilos generales para la página */
+html,
+body {
+  height: 100%; /* Cambiado a 100% */
+  background-color: #1e1e1e; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+  margin: 0;
+  padding: 0;
+  
+}
+
+.contenido {
+  /* Estilos para el contenido si lo necesitas */
+  padding: 20px;
+  color: white;
+}
+
+/* Estilos para los títulos */
+h4 {
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  color: hsl(40, 62%, 55%);
+  text-align: center;
+  padding-top: 5%;
+}
+
+h2 {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #d46445;
+  text-align: center;
+}
+
+/* Estilos para los controles */
+.control {
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+
+/* Estilos para el formulario de inicio de sesión */
+.form-signin {
+  padding: 30px 2rem 60px; /* Espacio arriba, derecha, abajo e izquierda */
+  background-color: #1e1e1e;
+  margin: 60px auto; /* Márgenes arriba y abajo, centrado horizontalmente */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-signin{
+  max-width: 20%; /* Cambia según tus necesidades */
+  max-height: 60%; /* Cambia según tus necesidades */
+}
+
+/* Estilos para el formulario flotante y sus campos */
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin .form-floating {
+  margin-bottom: 1rem;
+}
+
+/* Estilos para los campos de entrada y etiquetas */
+.form-signin input[type='text'],
+.form-signin input[type='password'] {
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 3px;
+  outline: none;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Estilo específico para el campo de email */
+.form-signin input[type='text'] {
+  margin-bottom: 10px;
+}
+
+/* Estilo específico para el campo de contraseña */
+.form-signin input[type='password'] {
+  margin-bottom: 0;
+  width: 87%; /* Establece el ancho al 100% */
+}
+
+/* Estilo para posicionar el icono junto a la caja de contraseña */
+.form-floating .btn {
+  position: absolute;
+  right: 2px; /* Ajusta la posición horizontal según sea necesario */
+  top: 50%; /* Centra verticalmente */
+  transform: translateY(-50%);
+}
+/* Estilo para el botón de ver contraseña */
+#eye_icon {
+  line-height: 2.4;
+  margin-top: 35%;
+  border-left: none;
+  font-size: 14px;
+  height: 38px;
+}
+
+/* Estilo para centrar verticalmente el texto 'Contraseña*' */
+.form-floating label {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para el párrafo de derechos de autor en la parte inferior */
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #d4a445;
+  background-color: #1e1e1e;
+  padding: 15px 0;
+}
+
+/* Estilo para centrar y cambiar el color del enlace */
+.centrar-enlace {
+  text-align: center;
+}
+
+.centrar-enlace a {
+  color: white;
+}
+
+/* Estilos para los enlaces */
+.custom-link.active {
+  color: #d4a445 !important;
+}
+
+.custom-link {
+  color: #fff !important;
+  padding-right: 10px;
+  border-right: 1px solid #d4a44570;
+  transition: color 0.3s ease;
+}
+
+/* Estilos para los enlaces en el hover */
+.custom-link:hover {
+  color: #d4a445 !important;
+}
+
+/* Eliminar el borde derecho del último enlace */
+.custom-link:last-child {
+  border-right: none;
+}
+
+/* Estilo para el botón de inicio de sesión */
+.btn-iniciar-sesion {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Espaciado interno */
+  margin-top: 120px; /* Margen superior de 10px */
+  margin-bottom: 15px; /* Margen inferior de 10px */
+  background-color: #007bff; /* Cambia el color de fondo según tus preferencias */
+  color: #fff; /* Color del texto */
+  border: auto auto; /* Sin bordes */
+  border-radius: 5px; /* Esquinas redondeadas */
+  font-size: 16px; /* Tamaño de fuente */
+
+  /* Controles para mover izquierda y derecha */
+  margin-left: 5px;
+  margin-right: -3px;
+}
+
+/* Estilo para el botón de inicio de sesión en hover */
+.btn-iniciar-sesion:hover {
+  background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
+}

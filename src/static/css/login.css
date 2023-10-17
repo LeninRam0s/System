@@ -1,0 +1,184 @@
+/* Estilos generales para la página */
+html,
+body {
+  height: 100%; /* Cambiado a 100% */
+  background-color: #1e1e1e; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Para ocultar la barra de desplazamiento */
+  background-image: url('https://lh3.googleusercontent.com/fife/AK0iWDyqhkUNzG5e-Gtnx2SZEJOCZyqg3UXsmcUJ1ie6dMeKMQB6mIh9HwFm4vMQFixJC9xwm9fWlUAOuJ6NKPmVwO_MUSJSk0dJ3EfRciT0fKCHLDn9kOmttNY-CHE23jq-bXfks2q_mS72-LlgfsWus04lYtM6M-yUvFM6OZwyevgiKyN5yuFHxhqNRAByToTB520BG6IAWjIHmZhXJAEJkKdQJKdr8JU1Svq6PeR7JmDhhP73VulryBzojRhe6sOza4Vzc0Yllw_g3uGwJRyYDMhXmOC5wcvPtLo-ZjqPzsathMowx9ChCwfAZj1CvdngUcTjcMhtWUeXTuAaWyYt-IoJEKsUb7KKpZad1Cu_KlMEkK_wbxVTf5u-xEzfDOH812LP2ayJ6zDvVTRriwmQskBS9rncnxkcsgBkCqSi7ljMW9bYcGaylJGGC7p9R4LgOLyZcmvsXSk36FSimGVrZv7RQ59i1tieeUFBXxFVvC6fa2s7slvM2zx1fp5H8ENgZKHaMlbU_-bw89et0c2zCFu_EdAcaFdLLrsqkn-cIQAgpaE7CEUsRSmE3P5QxoRicOYnKxe5isLKSAf419awT1ERl58LFR4USF7kvQ-Ua5uoM7PzwinNXbllG7PxW4kl8dwRIvCizsu7U8Omd4C24iAl6oGZKR0XtUtfJIlUoKoejH8OgMVL6yqmmQxTp9deOEEU2HfQmpNiuqn7W64bv8w-V-4mS4d-q9HuDOVWO6V5J1-usgnOzC3taaD-vOHq0x8dP0PM9uDj6yjacS1OqsgULV4IVxCu96TCxqk1u5MnLNwndGTN2xaZnpg1jnXYQ7HGW9OBjeCiC9EbWP_9EcGJQf63L5jY2CK4JqA1kBZJ-EMMdiooR8DwQpHIEBbOLgqUWibDw7jPoqXoHaNdS7e0Nfmm8KaorCiHTC-31t-Nhf6V2XiM5freWbTsffctLGVvn-WYcclGJQe6vE3K_mtm8FKeUfxCmSib4Fx6vOQiwGgg0GjJX6dTHPdZyfxm0uiuvkeioD5Uze7W6iElFzUyGlQl7E5ai5rL1g_tcY3YFjwnibiQVBjzqTTyKjdBFlc5_vWZyuADuE6H2sNhn-RcJpqiJBhT0n8dG80wIZ_jAx0H1GH4AMEWfiQsXpUbTwpgMOd_ZyxdT-jgirYAcBJi7nmL-QxGZA6Kv7SlntXM_EFxC1V9ZfkKv7cQ1ee2EhCYbNMAccNZoZo0bvQMVTJdiAiP_I5qLhCmTRSjxyLSfIpevq3_ctc3QW56p7DJO9m1eoFLkKgR1UV8NUjRhdWJMk2BTTdPPCc1UmNS24p9vI6BGflMaekbaIZTurcfmctSyyA3a8GFd8qdxW4fH7XohvTLjg6rx-wPbneo1DZcgsjQDLO2s_PzNy8PpoUssO6DjGL_P8UZJpQaRfT64W7eLOywc9aYrIf2MFBsK1AOcqlZkyjLbJ79mE9EWtLcC2FSRP0AbsH2LH4g0dzpJs6XQeZ0LhtT-sYd8KRky6687C-20oDm8DaemZpx5Iiz00p7g_kugN5HsyHv3A5pJKMBtt_f11hFIFYCh_tKZ5hnk8aWQvRIsBreFteyz7ING52aGN_Ls8O8XQPPpAHgARmnfrerwYLUSB0zk4wJCx7kfIJeBH1RLFphXEfL1TyOvna_kw=w1125-h954');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  image-rendering: auto; /* Aplica a la imagen de fondo */
+}
+
+.contenido {
+  /* Estilos para el contenido si lo necesitas */
+  padding: 30px;
+  color: white;
+}
+
+/* Estilos para los títulos */
+h4 {
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  color: hsl(40, 62%, 55%);
+  text-align: center;
+  padding-top: 5%;
+}
+
+h2 {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #d46445;
+  text-align: center;
+}
+
+/* Estilos para los controles */
+.control {
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+
+/* Estilos para el formulario de inicio de sesión */
+.form-signin {
+  padding: 30px 2rem 60px; /* Espacio arriba, derecha, abajo e izquierda */
+  background-color: #1e1e1e;
+  margin: 60px auto; /* Márgenes arriba y abajo, centrado horizontalmente */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-signin {
+  max-width: 20%; /* Cambia según tus necesidades */
+  max-height: 80%; /* Cambia según tus necesidades */
+}
+
+/* Estilos para el formulario flotante y sus campos */
+.form-signin .form-floating:focus-within {
+  z-index: 3;
+}
+
+.form-signin .form-floating {
+  margin-bottom: 1rem;
+}
+
+/* Estilos para los campos de entrada y etiquetas */
+.form-signin input[type='text'],
+.form-signin input[type='password'] {
+  border: none;
+  background-color: #333;
+  color: #ffffff;
+  border-radius: 3px;
+  outline: none;
+  padding: auto;
+}
+
+/* Estilo específico para el campo de email */
+.form-signin input[type='text'] {
+  margin-bottom: auto;
+  margin-bottom: auto; /* Margen inferior de 10px */
+}
+
+/* Estilo específico para el campo de contraseña */
+.form-signin input[type='password'] {
+  margin-bottom: auto;
+  margin-bottom: auto; /* Margen inferior de 10px */
+  width: 87%; /* Establece el ancho al 100% */
+}
+
+/* Estilo para posicionar el icono junto a la caja de contraseña */
+.form-floating .btn {
+  position: absolute;
+  right: 2px; /* Ajusta la posición horizontal según sea necesario */
+  top: 50%; /* Centra verticalmente */
+  transform: translateY(-50%);
+}
+/* Estilo para el botón de ver contraseña */
+#eye_icon {
+  line-height: 2.4;
+  margin-top: 35%;
+  border-left: none;
+  font-size: 14px;
+  height: 38px;
+}
+
+/* Estilo para centrar verticalmente el texto 'Contraseña*' */
+.form-floating label {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para el párrafo de derechos de autor en la parte inferior */
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #d4a445;
+  background-color: #1e1e1e;
+  padding: 15px 0;
+}
+
+/* Estilo para centrar y cambiar el color del enlace */
+.centrar-enlace {
+  text-align: center;
+}
+
+.centrar-enlace a {
+  color: #ffffff;
+  padding: auto;
+}
+
+/* Estilos para los enlaces */
+.custom-link.active {
+  color: #d4a445 !important;
+}
+
+.custom-link {
+  color: #ffffff !important;
+  padding-right: 10px;
+  border-right: 1px solid #d4a44570;
+  transition: color 0.3s ease;
+}
+
+/* Estilos para los enlaces en el hover */
+.custom-link:hover {
+  color: #d4a445 !important;
+}
+
+/* Eliminar el borde derecho del último enlace */
+.custom-link:last-child {
+  border-right: none;
+}
+
+/* Estilo para el botón de inicio de sesión */
+.container2 {
+  margin-top: 20px; /* Margen superior de 10px */
+  justify-content: 5px;
+  align-items: 5px;
+  height: 15%;
+}
+.btn-iniciar-sesion {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Espaciado interno */
+  margin-top: 130px; /* Margen superior de 10px */
+  margin-bottom: 10px; /* Margen inferior de 10px */
+  background-color: #007bff; /* Cambia el color de fondo según tus preferencias */
+  color: #fff; /* Color del texto */
+  border: auto auto; /* Sin bordes */
+  border-radius: 5px; /* Esquinas redondeadas */
+  font-size: 16px; /* Tamaño de fuente */
+
+  /* Controles para mover izquierda y derecha */
+  margin-left: 5px;
+  margin-right: -3px;
+}
+
+/* Estilo para el botón de inicio de sesión en hover */
+.btn-iniciar-sesion:hover {
+  background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
+}

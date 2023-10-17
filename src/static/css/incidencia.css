@@ -1,0 +1,229 @@
+html,
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  color: #c5c5c5;
+  margin: 0;
+  padding: 0;
+}
+
+h2,
+h1 {
+  text-align: center;
+  color: #d4a445;
+}
+
+.container,
+.formulario {
+  max-width: 100%;
+  width: 100%;
+  margin: 5px auto;
+  padding: 1rem;
+  background-color: #1e1e1e;
+}
+
+.container {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: auto;
+  padding-right: auto;
+}
+
+.formulario {
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-row .form-floating:focus-within {
+  z-index: 2;
+}
+
+/* Estilos para los campos de entrada y etiquetas */
+.form-row .form-floating {
+  margin-bottom: 0.2em;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  flex-basis: calc(33.333% - 10px);
+  margin-bottom: 10px;
+}
+
+/* Estilo para la etiqueta */
+.form-floating label {
+  position: absolute;
+  pointer-events: none; /* Evita interacción con la etiqueta */
+  transform-origin: top left;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+/* Estilo para la etiqueta cuando el campo está enfocado o tiene contenido */
+.form-floating input:focus + label,
+.form-floating input:not(:placeholder-shown) + label {
+  transform: translateY(-110%) scale(0.8);
+  opacity: 1;
+}
+
+/* Estilo para la caja de entrada */
+.form-floating input {
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #333; /* Color de fondo deseado */
+  color: #fff; /* Color del texto */
+}
+
+.form-floating input[type='text'],
+.form-floating input[type='email'],
+.form-floating input[type='date'],
+.form-floating input[type='time'],
+.form-floating select {
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 3px;
+  outline: none;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Estilo para el input de tipo date */
+.form-control[type='date'] {
+  background-color: #333; /* Color de fondo deseado */
+  color: #fff; /* Color del texto */
+  border-radius: 3px;
+  border: none;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+/* Estilo para el icono del calendario */
+.form-control[type='date']::-webkit-calendar-picker-indicator {
+  -webkit-filter: invert(1);
+  filter: invert(1); /* Invertir colores del icono */
+}
+
+.form-floating input[type='password'] {
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 3px;
+  outline: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 85%;
+}
+
+/* Estilo para centrar y cambiar el color del enlace */
+.centrar-enlace {
+  text-align: center;
+}
+
+.centrar-enlace a {
+  color: white;
+}
+
+/* Estilos para los enlaces */
+.custom-link.active {
+  color: #d4a445 !important;
+}
+
+.custom-link {
+  color: #fff !important;
+  padding-right: 10px;
+  border-right: 1px solid #d4a44570;
+  transition: color 0.3s ease;
+}
+
+/* Estilos para los enlaces en el hover */
+.custom-link:hover {
+  color: #d4a445 !important;
+}
+
+/* Eliminar el borde derecho del último enlace */
+.custom-link:last-child {
+  border-right: none;
+}
+
+/* Estilos para el botón de ver contraseña y su posición junto a la caja de contraseña */
+.form-floating .btn {
+  position: none;
+  padding: 10px;
+  height: auto;
+  right: 5px;
+  top: -20px;
+}
+
+/* Estilo para el ícono del ojo dentro del botón */
+#eye_icon {
+  line-height: 2.5;
+  margin: 0;
+}
+
+/* Estilos para la tabla */
+.table-dark {
+  background: linear-gradient(to bottom, #1e1e1e, #000);
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para las filas de la tabla */
+.table-dark tbody tr {
+  border-bottom: 1px solid #555;
+  background-color: #1e1e1e;
+}
+
+/* Estilos para las celdas de encabezado */
+.table-dark th {
+  border: none;
+  background-color: #101010;
+  color: #d4a445;
+  text-align: center; /* Para centrar el texto horizontalmente */
+  vertical-align: middle; /* Para centrar el texto verticalmente */
+}
+
+/* Estilos para las celdas de datos */
+.table-dark td {
+  border: none;
+  background-color: #1e1e1e;
+  text-align: center; /* Para centrar el texto horizontalmente */
+  vertical-align: middle; /* Para centrar el texto verticalmente */
+  /*text-align: center; /* Alinea el contenido al centro horizontalmente */
+  vertical-align: middle; /* Alinea el contenido al centro verticalmente */
+  font-size: 16px; /* Tamaño del texto en píxeles, ajusta según sea necesario */
+}
+
+/* Estilos para los enlaces en la tabla */
+.table-dark a {
+  color: white;
+}
+
+/* Estilos para el botón de ver contraseña y su posición junto a la caja de contraseña */
+.form-floating .input-group-append {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#show_password {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+/* Estilo para el ícono del ojo dentro del botón */
+#eye_icon {
+  line-height: 2.5;
+  margin: 0;
+  font-size: 20px;
+}

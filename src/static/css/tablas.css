@@ -1,0 +1,27 @@
+/* Asegura que los elementos ocupen todo el ancho de la pantalla */
+html,
+body,
+.intro {
+  width: 100%;
+}
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card {
+  border-radius: 0.5rem;
+}
+
+.table-scroll {
+  border-radius: 0.5rem;
+}
+
+thead {
+  top: 0;
+  position: -webkit-sticky;
+  position: sticky;
+}

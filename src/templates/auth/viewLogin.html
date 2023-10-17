@@ -1,0 +1,76 @@
+{% extends './base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sesion.css')}}">
+{% endblock %}
+
+{% block body %}
+
+<div class="control">
+    <form class="form-signin" action="acceso-login" method="post">
+
+        <h4 class="text-center">Sistema de Análisis de Datos Avanzado para
+            la Toma de Decisiones</h4>
+
+        <div class="text-center mt-3">
+            <img src="{{ url_for('static', filename='img/user3.png') }}"
+                alt="Imagen de Usuario" width="75" height="100">
+        </div>
+
+        <h1 class="mb-3 fw-normal text-center">Bienvenido</h1>
+
+        <form action="/login" method="post">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput"
+                    name="txtNIP" placeholder="Ejemplo: 12345-P"
+                    pattern="^\d{5,6}-(?:[AaPp])$" required>
+                <label for="floatingInput">NIP <span class="text-danger">*</span></label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPass"
+                    name="txtPassword" placeholder="Ejemplo: López">
+                <label for="floatingPass">Contraseña <span class="text-danger">*</span></label>
+                <button id="show_password" class="btn btn-primary" type="button"
+                    onclick="togglePassword()">
+                    <span id="eye_icon" class="fa fa-eye-slash"></span>
+                </button>
+            </div>
+
+            <h2 class="danger">
+                {% if mensaje %}
+                {{ mensaje }}
+                {% endif %}
+            </h2>
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox"
+                    value="remember-me" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">Recordarme</label>
+            </div>
+
+            <div class="btn-success">
+                <button type="submit" class="btn btn-iniciar-sesion">Iniciar
+                    Sesión</button>
+            </div>
+        </form>
+
+    </form>
+</div>
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Validación de campos js -->
+<script
+    src="{{ url_for('static', filename='javascript/validacion_User.js') }}"></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-cm1FJCxeSri3l3z8nZea5T1MIg4Jy5c5fF5mi1rnl4g1by5Jp5FEh3Os2R5h5jJs6"
+    crossorigin="anonymous"></script>
+
+{% endblock %}

@@ -1,0 +1,404 @@
+{% extends './base_Menu.html'%}
+
+{% block title %}Delitos contra la vida{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet"
+    href="{{ url_for('static', filename='css/incidencia.css')}}">
+
+{% endblock %}
+
+{% block body %}
+
+<div
+    class="container">
+
+    <div class="formulario">
+
+        <p style="text-align:center;">
+            <img src="{{ url_for('static', filename='img/vida.png') }}"
+                alt="Imagen de Usuario" width="160" height="80">
+        </p>
+        <h2>Registro de Heridos y Fallecidos</h2>
+
+        <form class="form-signin" id="Registro"
+            action="/editarVida/{{vidas.Id}}"
+            method="POST">
+            <!-- Primer Fila -->
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="date" class="form-control"
+                            id="floatingInput" name="txtFecha"\
+                            value="{{vidas.Fecha}}" required>
+                        <label for="floatingInput">Fecha <span
+                                class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Seleccione una fecha
+                            válida.</div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="time" class="form-control"
+                            id="floatingHora" name="txtHora"
+                            value="{{vidas.Hora}}">
+                        <label for="floatingHora">Hora <span class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Ingrese una hora válida.</div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingDireccion" name="txtDireccion"
+                            value="{{vidas.Direccion}}"
+                            placeholder="Ejemplo: Calle 123, Ciudad"
+                            pattern="^[A-Za-z0-9\s,'-]*$" required>
+                        <label for="floatingDireccion">Dirección <span
+                                class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Ingrese una dirección
+                            válida.</div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Segunda Fila -->
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingCoordenadas" name="txtCoordenadas"
+                            value="{{vidas.Coordenadas}}"
+                            placeholder="Ejemplo: 14.634915, -90.506882"
+                            pattern="^([1-8]?\d(\.\d+)?|90(\.0+)?),\s*-\d{1,3}(\.\d+)?$"
+                            required>
+                        <label for="floatingCoordenadas">Coordenadas (Latitud,
+                            Longitud) <span class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Ingrese coordenadas
+                            válidas en el formato: latitud, longitud (por
+                            ejemplo, 14.634915, -90.506882).</div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingNombreCompleto" name="txtNombre"
+                            value="{{vidas.Nombre}}"
+                            placeholder="Ejemplo: Juan Pérez"
+                            pattern="^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$"
+                            required>
+                        <label for="floatingNombreCompleto">Nombre Completo
+                            <span class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Ingrese un nombre completo
+                            válido (nombres y apellidos).</div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingEdad" name="txtEdad"
+                            value="{{vidas.Edad}}"
+                            placeholder="Ejemplo: 25"
+                            pattern="^\d+$"
+                            required>
+                        <label for="floatingEdad">Edad <span class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Ingrese la edad en años.
+                            Ej. 18, si es menor a 6 meses o se desconoce
+                            ingresar 0 y si es mayora a 6 meses 1.</div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Tercer Fila -->
+            <div class="form-row ">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSexo"
+                            name="txtSexo" required>
+                            <option value disabled selected>Seleccionar Genero</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <label for="floatingSexo">Genero <span
+                                class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Seleccione un sexo.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingDelito"
+                            name="txtDelito" required>
+                            <option value disabled selected>Seleccionar Tipo de
+                                Delito</option>
+                            <option value="Fallecido">Fallecido</option>
+                            <option value="Lesionado">Lesionado</option>
+                        </select>
+                        <label for="floatingDelito">Tipo de Delito <span
+                                class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Seleccione un tipo de
+                            delito.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingArma"
+                            name="txtArma" required>
+                            <option value disabled selected>Seleccionar Tipo de
+                                Arma Utilizada</option>
+                            <option value="Arma Blanca">Arma Blanca</option>
+                            <option value="Arma de Fuego">Arma de Fuego</option>
+                            <option value="Estrangulamiento">Estrangulamiento</option>
+                            <option value="Camioneta">Vapuleado</option>
+                            <option value="Objeto Contundente">Objeto Contundente</option>
+                            <option value="Artefacto Explosivo">Artefacto Explosivo</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <label for="floatingArma">Tipo de Arma Utilizada
+                            <span
+                                class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Seleccione un tipo de
+                            Arma.</div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Cuarta Fila -->
+            <div class="form-row ">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingNacionalidad"
+                            name="txtNacionalidad" required>
+                            <option value disabled selected>Seleccionar
+                                Nacionalidad</option>
+                            <option value="Guatemalteco">Guatemalteco</option>
+                            <option value="Argentino">Argentino</option>
+                            <option value="Beliceño">Beliceño</option>
+                            <option value="Boliviano">Boliviano</option>
+                            <option value="Brasileño">Brasileño</option>
+                            <option value="Canadiense">Canadiense</option>
+                            <option value="Chileno">Chileno</option>
+                            <option value="Colombiano">Colombiano</option>
+                            <option value="Costarricense">Costarricense</option>
+                            <option value="Cubano">Cubano</option>
+                            <option value="Desconocida">Desconocida</option>
+                            <option value="Dominicano">Dominicano</option>
+                            <option value="Ecuatoriano">Ecuatoriano</option>
+                            <option value="Estadounidense">Estadounidense</option>
+                            <option value="Haitiano">Haitiano</option>
+                            <option value="Hondureño">Hondureño</option>
+                            <option value="Italiano">Italiano</option>
+                            <option value="Jamaiquino">Jamaiquino</option>
+                            <option value="Mexicano">Mexicano</option>
+                            <option value="Nicaragüense">Nicaragüense</option>
+                            <option value="Panameño">Panameño</option>
+                            <option value="Paraguayo">Paraguayo</option>
+                            <option value="Peruano">Peruano</option>
+                            <option value="Puertorriqueño">Puertorriqueño</option>
+                            <option value="Salvadoreño">Salvadoreño</option>
+                            <option value="Uruguayo">Uruguayo</option>
+                            <option value="Venezolano">Venezolano</option>
+                        </select>
+                        <label for="floatingNacionalidad">Nacionalidad <span
+                                class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Seleccione una
+                            nacionalidad.</div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                   <div class="form-floating">
+    <select class="form-select" id="floatingMovil" name="txtMovil" required>
+        <option value="" disabled selected>Seleccionar Móvil</option>
+        <option value="Accidental/Fortuito">Accidental/Fortuito</option>
+        <option value="Competencia por Comercio/Servicios">Competencia por Comercio/Servicios</option>
+        <option value="Conflictividad Social">Conflictividad Social</option>
+        <option value="Defensa Propia/Terceros">Defensa Propia/Terceros</option>
+        <option value="Extorsion">Extorsion</option>
+        <option value="Ingreso a Propiedad Privada">Ingreso a Propiedad Privada</option>
+        <option value="Intento de Darse a la Fuga">Intento de Darse a la Fuga</option>
+        <option value="Periodismo">Periodismo</option>
+        <option value="Politico">Politico</option>
+        <option value="Por Establecer">Por Establecer</option>
+        <option value="Rechazo a Comunidad LGBTIQ+">Rechazo a Comunidad LGBTIQ+</option>
+        <option value="Relacion con Pandillas">Relacion con Pandillas</option>
+        <option value="Represalias contra Instituciones">Represalias contra Instituciones</option>
+        <option value="Robo">Robo</option>
+        <option value="Secuestro">Secuestro</option>
+        <option value="Sexual">Sexual</option>
+        <option value="Venganza">Venganza</option>
+        <option value="Victima Colateral">Victima Colateral</option>
+        <option value="Violencia Intrafamiliar">Violencia Intrafamiliar</option>
+        <option value="Bala Perdida">Bala Perdida</option>
+    </select>
+    <label for="floatingMovil">Móvil <span class="text-danger">*</span></label>
+    <div class="invalid-feedback">Seleccione un móvil.</div>
+                   </div>
+
+                </div>
+                <div class="col-md-3">
+
+                </div>
+            </div>
+
+            <!--Botones-->
+            <div>
+                <a href="/vida" onclick="return validarCampos()">
+                    <button type="submit" class="btn btn-primary">
+                        Registrar
+                    </button>
+                </a>
+
+                <a href="/vida" class="btn btn-secondary">Cancelar</a>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="alert alert-info"
+                    style="margin: 20px 0; text-align: center;">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+            </div>
+        </form>
+    </div>
+
+</div>
+<!-- Validación de campos js -->
+<script
+    src="{{ url_for('static', filename='javascript/validacion_Incidencia.js') }}"></script>
+</script>
+<!--Validacion de Listas-->
+<!--Sexo-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtén el valor del género de la base de datos (por ejemplo, "Masculino")
+        var valor = "{{ vidas.Sexo }}";  // Asegúrate de tener este valor definido
+
+        // Convertimos todo a minúsculas para comparar de manera insensible a mayúsculas/minúsculas
+        valor = valor.toLowerCase();
+
+        // Encuentra el elemento select
+        var selectElement = document.getElementById('floatingSexo');
+
+        // Recorre las opciones y selecciona la que coincide con el texto del género (insensible a mayúsculas/minúsculas)
+        for (var i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].text.toLowerCase() === valor) {
+                selectElement.options[i].selected = true;
+                break;
+            }
+        }
+
+        // Imprime el valor en la consola
+        console.log('Sexo:', valor);
+    });
+</script>
+<!--Delito-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtén el valor del género de la base de datos (por ejemplo, "Masculino")
+        var valor = "{{ vidas.Delito }}";  // Asegúrate de tener este valor definido
+
+        // Convertimos todo a minúsculas para comparar de manera insensible a mayúsculas/minúsculas
+        valor = valor.toLowerCase();
+
+        // Encuentra el elemento select
+        var selectElement = document.getElementById('floatingDelito');
+
+        // Recorre las opciones y selecciona la que coincide con el texto del género (insensible a mayúsculas/minúsculas)
+        for (var i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].text.toLowerCase() === valor) {
+                selectElement.options[i].selected = true;
+                break;
+            }
+        }
+
+        // Imprime el valor en la consola
+        console.log('Delito:', valor);
+    });
+</script>
+<!--Arma-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtén el valor del género de la base de datos (por ejemplo, "Masculino")
+        var valor = "{{ vidas.Arma }}";  // Asegúrate de tener este valor definido
+
+        // Convertimos todo a minúsculas para comparar de manera insensible a mayúsculas/minúsculas
+        valor = valor.toLowerCase();
+
+        // Encuentra el elemento select
+        var selectElement = document.getElementById('floatingArma');
+
+        // Recorre las opciones y selecciona la que coincide con el texto del género (insensible a mayúsculas/minúsculas)
+        for (var i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].text.toLowerCase() === valor) {
+                selectElement.options[i].selected = true;
+                break;
+            }
+        }
+
+        // Imprime el valor en la consola
+        console.log('Arma:', valor);
+    });
+</script>
+<!--Nacionalidad-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtén el valor del género de la base de datos (por ejemplo, "Masculino")
+        var valor = "{{ vidas.Nacionalidad }}";  // Asegúrate de tener este valor definido
+
+        // Convertimos todo a minúsculas para comparar de manera insensible a mayúsculas/minúsculas
+        valor = valor.toLowerCase();
+
+        // Encuentra el elemento select
+        var selectElement = document.getElementById('floatingNacionalidad');
+
+        // Recorre las opciones y selecciona la que coincide con el texto del género (insensible a mayúsculas/minúsculas)
+        for (var i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].text.toLowerCase() === valor) {
+                selectElement.options[i].selected = true;
+                break;
+            }
+        }
+
+        // Imprime el valor en la consola
+        console.log('Nacionalidad:', valor);
+    });
+</script>
+<!-- Movil -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Obtén el valor del género de la base de datos (por ejemplo, "Masculino")
+    let valor = "{{ vidas.Movil }}";  // Asegúrate de tener este valor definido
+
+    // Limpia el valor: quita espacios extras, signos '+' y diagonales
+    valor = valor.replace(/\s+/g, '').replace(/\+/g, '').replace(/\//g, '').toLowerCase();
+
+    // Encuentra el elemento select
+    let selectElement = document.getElementById('floatingMovil');
+
+    // Recorre las opciones y selecciona la que coincide con el texto del género (insensible a mayúsculas/minúsculas)
+    for (let i = 0; i < selectElement.options.length; i++) {
+        let optionText = selectElement.options[i].text.replace(/\s+/g, '').replace(/\+/g, '').replace(/\//g, '').toLowerCase();
+        if (optionText === valor) {
+            selectElement.options[i].selected = true;
+            break;
+        }
+    }
+
+    // Imprime el valor en la consola
+    console.log('Movil:', valor);
+});
+</script>
+<!---Bosotrap-->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-cm1FJCxeSri3l3z8nZea5T1MIg4Jy5c5fF5mi1rnl4g1by5Jp5FEh3Os2R5h5jJs6"
+    crossorigin="anonymous">
+</script>
+
+{% endblock %}

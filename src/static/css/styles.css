@@ -1,0 +1,68 @@
+html,
+body {
+  height: 100%;
+  background-color: #1e1e1e; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+  margin: 0;
+  padding: 0;
+}
+
+.chart {
+  width: 100%;
+  min-height: 400px;
+}
+
+.chart1 {
+  width: 100%;
+  min-height: 400px;
+}
+
+#chart-container {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.chart4 {
+  width: 100%;
+  min-height: 400px;
+  background-color: #181818;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+.chart4 {
+  width: 100%;
+  padding: 5%;
+  min-height: 400px; /* Ajusta la altura mínima según sea necesario */
+  max-height: 400px; /* Ajusta la altura máxima según sea necesario */
+  top: auto; /* Ajusta la posición desde la parte superior según sea necesario */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Centra horizontalmente */
+  position: relative ; /* Ajusta la posición si es necesario */
+  overflow: hidden; /* Controla el desbordamiento si el contenido es mayor que el tamaño */
+}
+
+.chart4-content {
+  padding: 10%;
+  min-width: 600px;
+  max-height: 800px;
+  overflow: hidden; /* Controla el desbordamiento si el contenido es mayor que el tamaño */
+}
+
+.chart4 path {
+  fill: #f76f6f;
+  fill-opacity: 1;
+  stroke: #371a1a;
+  stroke-opacity: 1;
+  stroke-width: 0.8;
+}
+
+.chart4 :hover {
+  fill: #723232;
+}
+
+.h1 {
+  text-align: left;
+}

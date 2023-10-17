@@ -1,0 +1,21 @@
+ {% include './base/cabecera.html' %}
+
+<div class="p-5 bg-light">
+
+  <div class="container">
+    <h1>Imagen de Usuario:</h1>
+    <img src="{{ url_for('static', filename='img/user3.png') }}"
+      alt="Imagen de Usuario">
+
+    <h1 class="display-3">BienvenidoS</h1>
+    <h2>Policia Nacional Civil</h2>
+    <h2>Subdireccion General de Operaciones</h2>
+    <h3>Seccion de Estadistica</h3>
+    <hr class="my-2">
+    <p>Sistema para la recolección de informacion Estadistica para la Policia
+      Nacional Civil de Guatemala.</p>
+    <button class="btn btn-outline-primary" type="button">Iniciar Sesion</button>
+
+  </div>
+
+  {% include './base/pie.html' %}

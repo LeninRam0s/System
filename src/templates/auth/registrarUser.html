@@ -1,0 +1,233 @@
+{% extends './base_Menu.html'%}
+{% block title %}Usuarios{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user.css')}}">
+
+{% endblock %}
+{% block body %}
+
+<div
+    class="container">
+
+    <div class="formulario">
+
+        <p style="text-align:center;">
+            <img src="{{ url_for('static', filename='img/user3.png') }}"
+                alt="Imagen de Usuario" width="50" height="62.5">
+        </p>
+        <h2>Registro de Usuario</h2>
+
+        <form class="form-signin" id="Registro" action="/addU" method="POST">
+            <!-- Primer Fila -->
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingInput" name="txtNIP"
+                            placeholder="Ejemplo: 12345-P"
+                            pattern="^\d{5,6}-(?:[AaPp])$" required>
+                        <label for="floatingInput">NIP <span class="text-danger">*</span></label>
+                        <div class="invalid-feedback">El formato debe ser
+                            12345-P o 123456-P.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingPrimerNombre" name="txtPrimerNombre"
+                            placeholder="Ejemplo: John"
+                            pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" required>
+                        <label for="floatingPrimerNombre">Primer Nombre <span
+                                class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Ingrese solo letras y
+                            espacios.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingSegundoNombre" name="txtSegundoNombre"
+                            placeholder="Ejemplo: John"
+                            pattern="^(|[A-Za-záéíóúÁÉÍÓÚñÑ\s]+)$">
+                        <label for="floatingSegundoNombre">Segundo Nombre</label>
+                        <div class="invalid-feedback">Ingrese solo letras y
+                            espacios.</div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Segunda Fila -->
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingTercerNombre" name="txtTercerNombre"
+                            placeholder="Ejemplo: Juan"
+                            pattern="^(|[A-Za-záéíóúÁÉÍÓÚñÑ\s]+)$">
+                        <label for="floatingTercerNombre">Tercer Nombre</label>
+                        <div class="invalid-feedback">Ingrese solo letras y
+                            espacios.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingPrimerApellido" name="txtPrimerApellido"
+                            placeholder="Ejemplo: Pérez"
+                            pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" required>
+                        <label for="floatingPrimerApellido">Primer Apellido
+                            <span class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Ingrese solo letras y
+                            espacios.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingSegundoApellido"
+                            name="txtSegundoApellido"
+                            placeholder="Ejemplo: López"
+                            pattern="^(|[A-Za-záéíóúÁÉÍÓÚñÑ\s]+)$">
+                        <label for="floatingSegundoApellido">Segundo Apellido</label>
+                        <div class="invalid-feedback">Ingrese solo letras y
+                            espacios.</div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Tercer Fila -->
+            <div class="form-row ">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingTelefono" name="txtTelefono"
+                            placeholder="Ejemplo: 45297090" pattern="\d{8}"
+                            title="Ingrese exactamente 8 dígitos" required>
+                        <label for="floatingTelefono">Teléfono <span
+                                class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Ingrese exactamente 8
+                            dígitos.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control"
+                            id="floatingCorreo" name="txtCorreo"
+                            placeholder="Ejemplo: ejemplo@dominio.com"
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                            required>
+                        <label for="floatingCorreo">Correo Electrónico<span
+                                class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Ingrese un correo
+                            electrónico válido.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingRol"
+                            name="txtRol" required>
+                            <option value disabled selected>Seleccionar Rol</option>
+                            <option value="1">Administrador</option>
+                            <option value="2">Analista SGO</option>
+                            <option value="3">Digitador SGO</option>
+                            <option value="4">Digitador SGIC</option>
+                        </select>
+                        <label for="floatingRol">Rol <span class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Seleccione un rol.</div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Cuarta Fila -->
+            <div class="form-row ">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingEstatus"
+                            name="txtEstatus" required>
+                            <option value disabled selected>Seleccionar Estatus</option>
+                            <option value="1">Activo</option>
+                            <option value="2">Suspendido</option>
+                            <option value="3">Inactivo</option>
+                        </select>
+                        <label for="floatingEstatus">Estatus <span
+                                class="text-danger">*</span></label>
+                        <div class="invalid-feedback">Seleccione un estatus.</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="/registroU" onclick="return validarCampos()">
+                    <button type="submit" class="btn btn-primary">
+                        Registrar
+                    </button>
+                </a>
+
+                <a href="/graficos" class="btn btn-secondary">Cancelar</a>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="alert alert-info"
+                    style="margin: 20px 0; text-align: center;">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="container2">
+
+        <h2 class="my-4">Lista de Usuarios</h2>
+        <table class="table table-dark">
+            <!-- Agregamos la clase 'table-dark' para el fondo oscuro -->
+            <thead>
+                <tr>
+                    <th scope="col">NIP</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Estatus</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí puedes generar filas de la tabla con los datos de tu base de datos -->
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{usuario.NIP}}</td>
+                    <td>{{usuario.Nombre}}</td>
+                    <td>{{usuario.Telefono}}</td>
+                    <td>{{usuario.Correo}}</td>
+                    <td>{{usuario.Rol}}</td>
+                    <td>{{usuario.Estatus}}</td>
+                    <td>
+                        <a href="/obtenerU/{{usuario.NIP}}"
+                            class="btn btn-warning mr-2">Editar</a>
+                        <a href="/eliminarU/{{usuario.NIP}}"
+                            class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                <!-- ... puedes agregar más filas según tus usuarios -->
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<!-- Validación de campos js -->
+<script src="{{ url_for('static', filename='javascript/validacion_User.js') }}"></script>
+
+<!---Bosotrap-->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-cm1FJCxeSri3l3z8nZea5T1MIg4Jy5c5fF5mi1rnl4g1by5Jp5FEh3Os2R5h5jJs6"
+    crossorigin="anonymous"></script>
+
+{% endblock %}
